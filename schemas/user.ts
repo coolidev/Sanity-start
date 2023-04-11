@@ -4,6 +4,16 @@ export default {
 	title: 'User',
   fields: [
     {
+      title: 'Avatar',
+      name: 'avatar',
+      type: 'image'
+    },
+    {
+      title: 'Backdrop Image',
+      name: 'background',
+      type: 'image'
+    },
+    {
       title: 'Name',
       name: 'name',
       type: 'string'
@@ -77,6 +87,19 @@ export default {
       ]
     },
     {
+      title: 'Skills',
+      name: 'skills',
+      type: 'array',
+      of: [{
+        name: 'skill',
+        type: 'object',
+        fields: [
+          { title: 'Image', name: 'image', type: 'image' },
+          { title: 'Skill name', name: 'name', type: 'string' }
+        ]
+      }]
+    },
+    {
       title: 'Projects',
       name: 'projects',
       type: 'array',
@@ -133,6 +156,34 @@ export default {
             type: 'array',
             of: [{ type: 'string'}]
           },
+        ]
+      }]
+    },
+    {
+      title: 'History',
+      name: 'history',
+      type: 'array',
+      of: [{
+        name: 'career',
+        type: 'object',
+        fields: [
+          { title: 'Company name', name: 'companyName', type: 'string' },
+          {
+            title: 'Duration',
+            name: 'duration',
+            type: 'object',
+            fields: [
+              { title: 'From', name: 'from', type: 'date', options: {
+                dateFormat: 'YYYY-MM'
+              }},
+              { title: 'To', name: 'to', type: 'date', options: {
+                dateFormat: 'YYYY-MM'
+              }}
+            ]
+          },
+          { title: 'Work Style', name: 'workStyle', type: 'string' },
+          { title: 'Position', name: 'position', type: 'string' },
+          { title: 'Comments', name: 'comments', type: 'array', of: [{ type: 'string' }]}
         ]
       }]
     }
