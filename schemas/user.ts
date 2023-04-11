@@ -6,12 +6,18 @@ export default {
     {
       title: 'Avatar',
       name: 'avatar',
-      type: 'image'
+      type: 'image',
+      options: {
+        hotspot: true
+      }
     },
     {
       title: 'Backdrop Image',
       name: 'background',
-      type: 'image'
+      type: 'image',
+      options: {
+        hotspot: true
+      }
     },
     {
       title: 'Name',
@@ -94,7 +100,14 @@ export default {
         name: 'skill',
         type: 'object',
         fields: [
-          { title: 'Image', name: 'image', type: 'image' },
+          {
+            title: 'Image',
+            name: 'image',
+            type: 'image',
+            options: {
+              hotspot: true
+            }
+          },
           { title: 'Skill name', name: 'name', type: 'string' }
         ]
       }]
@@ -107,7 +120,6 @@ export default {
         name: 'project',
         type: 'object',
         fields: [
-          { title: 'ID', name: 'id', type: 'string' },
           { title: 'Name', name: 'name', type: 'string' },
           { title: 'Description', name: 'desc', type: 'string' },
           {
