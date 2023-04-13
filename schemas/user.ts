@@ -1,7 +1,7 @@
 export default {
   name: 'user',
   type: 'document',
-	title: 'User',
+	title: 'Users',
   fields: [
     {
       title: 'Avatar',
@@ -97,19 +97,8 @@ export default {
       name: 'skills',
       type: 'array',
       of: [{
-        name: 'skill',
-        type: 'object',
-        fields: [
-          {
-            title: 'Image',
-            name: 'image',
-            type: 'image',
-            options: {
-              hotspot: true
-            }
-          },
-          { title: 'Skill name', name: 'name', type: 'string' }
-        ]
+        type: 'reference',
+        to: {type: 'skill'}
       }]
     },
     {
@@ -117,58 +106,8 @@ export default {
       name: 'projects',
       type: 'array',
       of: [{
-        name: 'project',
-        type: 'object',
-        fields: [
-          { title: 'Name', name: 'name', type: 'string' },
-          { title: 'Description', name: 'desc', type: 'string' },
-          {
-            title: 'Demo',
-            name: 'demo',
-            type: 'url',
-            validation: (Rule: any) => Rule.uri({
-              scheme: ['http', 'https']
-            })
-          },
-          {
-            title: 'Source',
-            name: 'source',
-            type: 'url',
-            validation: (Rule: any) => Rule.uri({
-              scheme: ['http', 'https'] // 'mailto', 'tel'
-            })
-          },
-          {
-            title: 'Thumbnail',
-            name: 'preview',
-            type: 'image',
-            options: {
-              hotspot: true // <-- Defaults to false
-            },
-            fields: [
-              {
-                name: 'caption',
-                type: 'string',
-                title: 'Caption',
-                // options: {
-                //   isHighlighted: true // <-- make this field easily accessible
-                // }
-              },
-              {
-                // Editing this field will be hidden behind an "Edit"-button
-                name: 'attribution',
-                type: 'string',
-                title: 'Attribution',
-              }
-            ]
-          },
-          {
-            title: 'Skills',
-            name: 'skills',
-            type: 'array',
-            of: [{ type: 'string'}]
-          },
-        ]
+        type: 'reference',
+        to: {type: 'project'}
       }]
     },
     {
